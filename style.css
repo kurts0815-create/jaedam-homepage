@@ -1,4 +1,4 @@
-/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 사무실 사인 한 장에서 자라난 사이트, 블루 판과 가는 선으로 나눈 목록 · signature: 사무실 내부 사인을 그대로 옮긴 첫 화면 블루 패널 */
+/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 간판 문구 로고를 첫 화면 가득 세우고, 두 세무사의 사진과 색이 다른 판으로 이어 간다 · signature: 화면 폭을 채운 재산을 지키다 문구 로고 */
 /* Hallmark · pre-emit critique: P3 H4 E4 S4 R4 V3 · weakest: P, 구역 순서는 의뢰인이 지정한 참고 사이트(seoul.tax)를 따랐다; 대신 상자 묶음을 걷어내고 사인의 가는 선 목록을 업무·이유·수수료 구역까지 이어 썼다 */
 /* waive 7b: 로고 원본 파일의 배경이 순백이라 화면 흰색도 순백으로 맞춘다. hero-review: fix · 5 findings · 5 resolved. finish-review: subagent · 10 findings · 9 resolved 1 partial(지도 글자 크기는 원본 이미지 한계, 눌러서 크게 보기로 대응) */
 
@@ -12,6 +12,8 @@
   --line: #d3dbe5;
   --wash: #f2f5f9;
   --paper: #ffffff;
+  --scrim: rgb(13 27 48 / 0.86);
+  --scrim-0: rgb(13 27 48 / 0);
   --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --wrap: 1160px;
   --gutter: clamp(20px, 5vw, 40px);
@@ -49,7 +51,7 @@ h3 { font-size: 1.25rem; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
-.sign :focus-visible, .cta :focus-visible, .why-num:focus-visible { outline-color: var(--ink); }
+.cta :focus-visible { outline-color: var(--ink); }
 
 .wrap { width: 100%; max-width: calc(var(--wrap) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
 
@@ -91,18 +93,18 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ---------- 첫 화면 ---------- */
-.hero { background: var(--wash); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--col-gap); align-items: center; padding-block: clamp(48px, 7vw, 88px); min-height: min(calc(100svh - 89px), 820px); }
-.hero h1 { font-size: clamp(3rem, 1.2rem + 6.4vw, 6rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1.08; color: var(--blue); }
-.hero .lead { margin-top: 28px; max-width: 21em; font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem); line-height: 1.6; color: var(--ink); }
-
-/* 사무실 내부 사인: 실물처럼 각진 판 */
-.sign { background: var(--blue); color: var(--paper); padding: 44px 32px 40px; text-align: center; }
-.sign img { width: 52%; margin-inline: auto; }
-.sign-name { margin-top: 4px; font-weight: 600; font-size: 1.125rem; letter-spacing: -0.01em; }
-.sign ul { margin-top: 24px; padding-block: 20px; border-block: 1px solid var(--paper); display: grid; gap: 12px; font-size: 1rem; font-weight: 500; }
-.sign-tel { margin-top: 20px; font-size: 1.375rem; font-weight: 500; font-variant-numeric: tabular-nums; }
-.sign-tel a { color: inherit; text-decoration: none; }
+/* 문구 로고 파일의 바탕이 순백이라 첫 화면도 순백으로 둔다 */
+.hero { background: var(--paper); }
+.hero-in { padding-block: clamp(48px, 7vw, 104px) clamp(64px, 8vw, 120px); }
+.hero-mark img { width: 100%; }
+.hero .lead { margin-top: clamp(32px, 4vw, 56px); max-width: 24em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem); font-weight: 500; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); }
+.hero .actions { margin-top: clamp(32px, 4vw, 48px); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in > * { animation: rise 640ms var(--ease-out) both; }
+  .hero-in > :nth-child(2) { animation-delay: 70ms; }
+  .hero-in > :nth-child(3) { animation-delay: 140ms; }
+}
 
 /* ---------- 본문 구획 ---------- */
 .band { padding-block: clamp(64px, 9vw, 120px); }
@@ -124,32 +126,37 @@ h3 { font-size: 1.25rem; }
 .ruled-links > li { padding: 0; display: block; }
 .ruled-links a { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 4px 32px; align-items: baseline; padding-block: 24px; text-decoration: none; color: var(--body); transition: background-color 160ms ease; }
 .ruled-links strong { color: var(--blue); }
-@media (hover: hover) and (pointer: fine) { .ruled-links a:hover { background: var(--paper); } }
+@media (hover: hover) and (pointer: fine) { .ruled-links a:hover { background: var(--wash); } }
 .fees + .ruled { margin-top: 24px; }
 
-/* 세무사 카드 */
+/* 세무사 카드: 사진 위에 이름을 얹는다 */
 .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.pcard { display: flex; flex-direction: column; border-radius: var(--r); overflow: hidden; background: var(--blue); color: var(--paper); text-decoration: none; transition: transform 200ms var(--ease-out); }
-.pcard img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; background: var(--pale); }
-.pcard-text { padding: 20px 24px 24px; display: grid; gap: 4px; }
-.pcard strong { font-size: 1.625rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
-.pcard-role { font-size: 0.9375rem; }
-.pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
+.pcard { position: relative; display: block; border-radius: var(--r); overflow: hidden; background: var(--pale); color: var(--paper); text-decoration: none; transition: transform 200ms var(--ease-out); }
 .pcard:active { transform: scale(0.98); }
+.pcard-img { display: block; }
+.pcard img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; }
+.pcard-text { position: absolute; inset: auto 0 0 0; display: grid; gap: 2px; padding: 96px 28px 28px; background: linear-gradient(to top, var(--scrim), var(--scrim-0)); }
+.pcard strong { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.pcard-role { font-size: 1rem; font-weight: 500; }
+.pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
 @media (hover: hover) and (pointer: fine) { .pcard:hover { transform: translateY(-4px); } }
 
-/* 리뷰 숫자와 이유 */
-.why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px var(--col-gap); align-items: stretch; }
-.why-num { display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; background: var(--blue); color: var(--paper); padding: 40px; text-decoration: none; transition: background-color 160ms ease; }
-.why-fig { font-size: clamp(5rem, 2rem + 10vw, 9rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; margin-bottom: auto; padding-bottom: 32px; }
-.why-unit { font-size: 0.3em; font-weight: 700; letter-spacing: -0.02em; margin-left: 8px; }
-.why-num strong { font-size: 1.25rem; }
-.why .ruled { margin-top: 32px; }
-@media (hover: hover) and (pointer: fine) { .why-num:hover { background: var(--blue-ink); } }
+/* 세무사가 직접 봅니다: 크기와 색이 다른 판 세 장 */
+.why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
+.tile { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; min-height: 240px; padding: clamp(28px, 3.4vw, 44px); border-radius: var(--r); }
+.tile h3 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2rem); letter-spacing: -0.03em; }
+.tile p { max-width: 26em; font-size: 1.0625rem; }
+.tile-blue { grid-row: span 2; background: var(--blue); color: var(--paper); }
+.tile-blue h2 { color: var(--paper); font-size: clamp(2rem, 1.2rem + 2.8vw, 3.25rem); }
+.tile-blue strong { display: block; margin-bottom: 4px; font-size: 1.25rem; letter-spacing: -0.02em; }
+.tile-paper { background: var(--paper); }
+.tile-ink { background: var(--ink); color: var(--pale); }
+.tile-ink h3 { color: var(--paper); }
 
 /* 수수료 */
 .fees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.fee { background: var(--paper); border-radius: var(--r); padding: 32px; }
+.fee { background: var(--wash); border-radius: var(--r); padding: 32px; }
+.band-wash .fee { background: var(--paper); }
 .fee h3 { font-size: 1.125rem; color: var(--ink); }
 .fee .fee-price { margin-top: 20px; color: var(--blue); font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fee-pre, .fee-unit { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--muted); }
@@ -189,7 +196,7 @@ h3 { font-size: 1.25rem; }
 .rows dt { color: var(--ink); font-weight: 700; }
 
 /* 상담 문의 띠 */
-.cta { background: var(--blue); color: var(--paper); padding: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; }
+.cta { background: var(--blue); color: var(--paper); border-radius: var(--r); padding: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; }
 .cta h2 { color: var(--paper); }
 .cta p { margin-top: 8px; }
 .cta .actions { margin-top: 0; }
@@ -229,26 +236,25 @@ h3 { font-size: 1.25rem; }
   .top-tel { margin-left: auto; }
   .brand img { height: 52px; }
   html { scroll-padding-top: 16px; }
-  .hero-grid { min-height: 0; }
-  .hero-grid, .split, .cols, .why, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .sign { max-width: 420px; width: 100%; margin-inline: auto; }
+  .split, .cols, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .why { grid-template-columns: minmax(0, 1fr); }
+  .tile { min-height: 0; }
   .profile-img { max-width: 420px; }
   .map { max-width: 640px; }
   .ruled-links a { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 560px) {
   .people { gap: 12px; }
-  .pcard-text { padding: 16px; }
+  .pcard-text { padding: 64px 16px 16px; }
   .pcard strong { font-size: 1.25rem; }
   .pcard-line { font-size: 0.8125rem; }
   .fees { grid-template-columns: minmax(0, 1fr); }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
   .actions .btn-solid { flex-basis: 100%; }
-  .why-num { padding: 28px; }
   .foot .gap { display: block; width: 0; height: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn, .pcard, .ruled-links a, .why-num { transition: none; }
+  .btn, .pcard, .ruled-links a { transition: none; }
   .btn:active, .pcard:active, .pcard:hover { transform: none; }
 }
