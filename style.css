@@ -1,4 +1,4 @@
-/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 약속과 이름 두 줄을 첫 화면에 크게 세우고, 두 세무사의 사진과 색이 다른 판으로 이어 간다 · signature: 굵은 블루와 가는 먹색, 굵기만 달리한 두 줄 제목 */
+/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 약속과 이름 두 줄을 첫 화면에 크게 세우고, 두 세무사의 사진과 색이 다른 판 두 장으로 이어 간다 · signature: 굵은 블루와 가는 먹색, 굵기만 달리한 두 줄 제목 */
 /* Hallmark · pre-emit critique: P3 H4 E4 S4 R4 V3 · weakest: P, 구역 순서는 의뢰인이 지정한 참고 사이트(seoul.tax)를 따랐다; 대신 상자 묶음을 걷어내고 사인의 가는 선 목록을 업무·이유·수수료 구역까지 이어 썼다 */
 /* waive 7b: 로고 원본 파일의 배경이 순백이라 화면 흰색도 순백으로 맞춘다. hero-review: fix · 5 findings · 5 resolved. finish-review: subagent · 10 findings · 9 resolved 1 partial(지도 글자 크기는 원본 이미지 한계, 눌러서 크게 보기로 대응) */
 
@@ -143,17 +143,13 @@ h3 { font-size: 1.25rem; }
 .pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
 @media (hover: hover) and (pointer: fine) { .pcard:hover { transform: translateY(-4px); } }
 
-/* 세무사가 직접 봅니다: 크기와 색이 다른 판 세 장 */
+/* 일하는 방식 두 가지: 색이 다른 판 두 장 */
 .why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
-.tile { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; min-height: 240px; padding: clamp(28px, 3.4vw, 44px); border-radius: var(--r); }
-.tile h3 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2rem); letter-spacing: -0.03em; }
-.tile p { max-width: 26em; font-size: 1.0625rem; }
-.tile-blue { grid-row: span 2; background: var(--blue); color: var(--paper); }
-.tile-blue h2 { color: var(--paper); font-size: clamp(2rem, 1.2rem + 2.8vw, 3.25rem); }
-.tile-blue strong { display: block; margin-bottom: 4px; font-size: 1.25rem; letter-spacing: -0.02em; }
-.tile-paper { background: var(--paper); }
+.tile { display: flex; flex-direction: column; justify-content: space-between; gap: 64px; min-height: 340px; padding: clamp(28px, 3.4vw, 48px); border-radius: var(--r); }
+.tile h2 { color: var(--paper); font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem); }
+.tile p { max-width: 26em; font-size: 1.125rem; }
+.tile-blue { background: var(--blue); color: var(--paper); }
 .tile-ink { background: var(--ink); color: var(--pale); }
-.tile-ink h3 { color: var(--paper); }
 
 /* 수수료 */
 .fees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
