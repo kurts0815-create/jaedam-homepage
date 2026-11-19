@@ -150,6 +150,17 @@ h3 { font-size: 1.25rem; }
 .b-blue h3 { font-size: 1.25rem; }
 .b .b-num { margin: 0 0 auto; max-width: none; font-size: clamp(3.5rem, 2rem + 5vw, 5.5rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
 
+/* 수수료 */
+.fees { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.fee { background: var(--paper); border-radius: var(--r); padding: 32px; }
+.fee h3 { font-size: 1.125rem; color: var(--ink); }
+.fee .fee-price { margin-top: 20px; color: var(--blue); font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fee-pre, .fee-unit { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--muted); }
+.fee-unit { margin-left: 4px; }
+.fee .fee-text { font-size: 1.75rem; line-height: 1.4; }
+.fee p { margin-top: 16px; font-size: 1rem; line-height: 1.6; }
+.fee-note { background: var(--pale); }
+
 /* 오시는 길 */
 .visit { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px 56px; align-items: center; }
 .map { width: 100%; border-radius: var(--r); background: var(--paper); }
@@ -205,7 +216,7 @@ h3 { font-size: 1.25rem; }
   .hero-grid, .split, .services, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .sign { max-width: 420px; width: 100%; margin-inline: auto; }
   .services-intro { position: static; }
-  .bento { grid-template-columns: minmax(0, 1fr); }
+  .bento, .fees { grid-template-columns: minmax(0, 1fr); }
   .b-wide { grid-column: auto; }
   .b { min-height: 180px; }
   .profile-img { max-width: 420px; }
