@@ -1,4 +1,4 @@
-/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 간판 문구 로고를 첫 화면 가득 세우고, 두 세무사의 사진과 색이 다른 판으로 이어 간다 · signature: 화면 폭을 채운 재산을 지키다 문구 로고 */
+/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 약속과 이름 두 줄을 첫 화면에 크게 세우고, 두 세무사의 사진과 색이 다른 판으로 이어 간다 · signature: 굵은 블루와 가는 먹색, 굵기만 달리한 두 줄 제목 */
 /* Hallmark · pre-emit critique: P3 H4 E4 S4 R4 V3 · weakest: P, 구역 순서는 의뢰인이 지정한 참고 사이트(seoul.tax)를 따랐다; 대신 상자 묶음을 걷어내고 사인의 가는 선 목록을 업무·이유·수수료 구역까지 이어 썼다 */
 /* waive 7b: 로고 원본 파일의 배경이 순백이라 화면 흰색도 순백으로 맞춘다. hero-review: fix · 5 findings · 5 resolved. finish-review: subagent · 10 findings · 9 resolved 1 partial(지도 글자 크기는 원본 이미지 한계, 눌러서 크게 보기로 대응) */
 
@@ -93,10 +93,12 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ---------- 첫 화면 ---------- */
-/* 문구 로고 파일의 바탕이 순백이라 첫 화면도 순백으로 둔다 */
 .hero { background: var(--paper); }
 .hero-in { padding-block: clamp(48px, 7vw, 104px) clamp(64px, 8vw, 120px); }
-.hero-mark img { width: 100%; }
+/* 굵기만 달리한 두 줄: 굵은 블루의 약속, 가는 먹색의 이름 */
+.hero-title { display: grid; gap: 0.12em; font-size: clamp(3rem, 1rem + 8vw, 7.5rem); line-height: 1.08; letter-spacing: -0.05em; }
+.ht-slogan { font-weight: 800; color: var(--blue); }
+.ht-name { font-weight: 300; color: var(--ink); }
 .hero .lead { margin-top: clamp(32px, 4vw, 56px); max-width: 24em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem); font-weight: 500; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); }
 .hero .actions { margin-top: clamp(32px, 4vw, 48px); }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
