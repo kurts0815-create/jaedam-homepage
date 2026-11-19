@@ -158,8 +158,27 @@ h3 { font-size: 1.25rem; }
 
 /* 오시는 길 */
 .visit { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px var(--col-gap); align-items: center; }
-.map-link { display: block; border-radius: var(--r); }
-.map { width: 100%; border-radius: var(--r); border: 1px solid var(--line); background: var(--paper); }
+.map { display: block; width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--line); background: var(--paper); }
+/* 약도: 글자 크기는 그림 좌표 기준이라 화면이 좁을수록 크게 잡는다 */
+.map text { font-family: var(--font); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; fill: var(--ink); }
+.map .m-mid { text-anchor: middle; }
+.map .m-strong { font-weight: 800; }
+.map .m-sub { font-weight: 500; fill: var(--muted); }
+.map .m-way { font-size: 14px; font-weight: 500; fill: var(--muted); }
+.map .m-dest { font-size: 20px; font-weight: 800; fill: var(--blue); }
+.m-ground { fill: var(--paper); }
+.m-block { fill: var(--wash); }
+.m-bldg { fill: var(--pale); }
+.m-zebra { fill: var(--line); }
+.m-here { fill: var(--blue); }
+.m-route { fill: none; stroke: var(--blue); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.m-start { fill: var(--blue); stroke: var(--paper); stroke-width: 3; }
+.m-end { fill: var(--paper); stroke: var(--blue); stroke-width: 3; }
+@media (min-width: 561px) {
+  .map text { font-size: 14px; }
+  .map .m-way { font-size: 12px; }
+  .map .m-dest { font-size: 17px; }
+}
 .facts { margin-top: 28px; }
 .facts > div, .rows > div { display: grid; grid-template-columns: minmax(0, 5em) minmax(0, 1fr); gap: 4px 20px; padding-block: 16px; border-top: 1px solid var(--line); }
 .facts > div:last-child, .rows > div:last-child { border-bottom: 1px solid var(--line); }
@@ -214,6 +233,7 @@ h3 { font-size: 1.25rem; }
   .hero-grid, .split, .cols, .why, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .sign { max-width: 420px; width: 100%; margin-inline: auto; }
   .profile-img { max-width: 420px; }
+  .map { max-width: 640px; }
   .ruled-links a { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 560px) {
