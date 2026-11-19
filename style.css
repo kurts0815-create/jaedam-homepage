@@ -159,6 +159,7 @@ h3 { font-size: 1.25rem; }
 .fee-unit { margin-left: 4px; }
 .fee .fee-text { font-size: 1.75rem; line-height: 1.4; }
 .fee p { margin-top: 16px; font-size: 1rem; line-height: 1.6; }
+.fee .fee-vat { margin-top: 4px; font-size: 0.9375rem; color: var(--muted); }
 .fee-note { background: var(--pale); }
 
 /* 오시는 길 */
