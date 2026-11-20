@@ -94,7 +94,18 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- 첫 화면 ---------- */
 /* 배경은 hero_bg.py 로 만든 그림. 왼쪽은 흰색으로 풀려 글자가 놓이고 오른쪽에 결이 흐른다 */
-.hero { background: var(--paper) url("img/hero-bg.jpg") right center / cover no-repeat; }
+.hero { position: relative; background: var(--paper) url("img/hero-bg.jpg") right center / cover no-repeat; }
+/* hero.js 가 같은 결을 천천히 흐르게 그린다. 그려지기 전과 움직임을 줄인 기기에서는 위 그림이 보인다 */
+.hero-flow { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 800ms ease; }
+.hero-flow.is-on { opacity: 1; }
+.hero-in { position: relative; }
+.hero-pause { position: absolute; right: var(--gutter); bottom: 20px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--muted); cursor: pointer; transition: transform 160ms var(--ease-out), color 160ms ease, border-color 160ms ease; }
+.hero-pause[hidden] { display: none; }
+.hero-pause svg { fill: currentColor; }
+.hero-pause .i-play, .hero-pause[aria-pressed="true"] .i-pause { display: none; }
+.hero-pause[aria-pressed="true"] .i-play { display: inline; }
+.hero-pause:active { transform: scale(0.94); }
+@media (hover: hover) and (pointer: fine) { .hero-pause:hover { color: var(--blue); border-color: var(--blue); } }
 .hero-in { display: flex; flex-direction: column; justify-content: center; min-height: min(calc(100svh - 89px), 720px); padding-block: clamp(56px, 7vw, 96px); }
 /* 서체는 Pretendard 하나. 가는 약속 한 줄 아래에 굵고 큰 이름을 굵기 차이로만 세운다 */
 .hero-title { display: grid; gap: 0.14em; font-size: clamp(2.75rem, 1rem + 5.6vw, 5.75rem); line-height: 1.1; letter-spacing: -0.04em; color: var(--blue); }
@@ -256,6 +267,6 @@ h3 { font-size: 1.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn, .pcard, .ruled-links a { transition: none; }
+  .btn, .pcard, .ruled-links a, .hero-pause, .hero-flow { transition: none; }
   .btn:active, .pcard:active, .pcard:hover { transform: none; }
 }
