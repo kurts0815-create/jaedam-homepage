@@ -330,18 +330,19 @@ h3 { font-size: 1.25rem; }
 .form-msg.is-bad { color: #b3261e; }
 
 /* ---------- 상담 문의 창 ---------- */
-.ask { width: min(420px, calc(100vw - 32px)); margin: auto; padding: 0; border: 0; border-radius: 20px; background: var(--paper); color: var(--body); box-shadow: 0 24px 64px rgba(15, 27, 45, 0.24); }
-.ask::backdrop { background: rgba(15, 27, 45, 0.48); }
+.ask { width: min(420px, calc(100vw - 32px)); margin: auto; padding: 0; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 20px; background: rgba(255, 255, 255, 0.8); -webkit-backdrop-filter: blur(24px) saturate(1.2); backdrop-filter: blur(24px) saturate(1.2); color: var(--ink); box-shadow: 0 24px 64px rgba(15, 27, 45, 0.24); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .ask { background: rgba(255, 255, 255, 0.94); } }
+.ask::backdrop { background: rgba(15, 27, 45, 0.36); }
 .ask-in { position: relative; padding: 32px 28px 20px; }
 .ask h2 { font-size: 1.5rem; letter-spacing: -0.03em; color: var(--ink); }
-.ask h2 + p { margin-top: 6px; color: var(--muted); }
+.ask h2 + p { margin-top: 6px; color: var(--body); }
 .ask-list { margin-top: 20px; }
-.ask-list a { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 4px; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: color 160ms var(--ease-out), padding 160ms var(--ease-out); }
+.ask-list a { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 4px; border-top: 1px solid rgba(15, 27, 45, 0.12); color: var(--ink); text-decoration: none; transition: color 160ms var(--ease-out), padding 160ms var(--ease-out); }
 .ask-list a { align-items: center; justify-content: flex-start; gap: 12px; }
 .ask-list a > span { margin-left: auto; }
-.ask-ico { flex: none; color: var(--muted); }
+.ask-ico { flex: none; color: var(--body); }
 .ask-list strong { font-size: 1.0625rem; font-weight: 700; }
-.ask-list a > span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.ask-list a > span { color: var(--body); font-variant-numeric: tabular-nums; }
 .ask-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--muted); cursor: pointer; }
 .ask-close:focus-visible, .ask-list a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 @media (hover: hover) {
