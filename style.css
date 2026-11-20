@@ -123,6 +123,7 @@ h3 { font-size: 1.25rem; }
 /* ---------- 본문 구획 ---------- */
 .band { padding-block: clamp(64px, 9vw, 120px); }
 .band-wash { background: var(--wash); }
+.band:not(.band-wash) + .band:not(.band-wash) { padding-top: 0; }   /* 같은 바탕이 이어질 때 여백이 두 배가 되지 않게 */
 .more { margin-top: 24px; font-weight: 700; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
 .split, .cols { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px var(--col-gap); align-items: start; }
 .cols-intro p { margin-top: 20px; }
