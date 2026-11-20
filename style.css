@@ -430,6 +430,9 @@ h3 { font-size: 1.25rem; }
   .form-foot .btn { width: 100%; }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
   .actions .btn-solid { flex-basis: 100%; }
+  /* 첫 화면 상담 문의: 문구와 떨어뜨려 가운데에 */
+  .hero .actions { margin-top: 48px; justify-content: center; }
+  .hero .actions .btn-solid { flex: 0 0 auto; min-width: 220px; }
   .foot-info { flex-direction: column; }
   .foot-info > div::after { display: none; }
 }
