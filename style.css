@@ -321,6 +321,9 @@ h3 { font-size: 1.25rem; }
 .ask h2 + p { margin-top: 6px; color: var(--muted); }
 .ask-list { margin-top: 20px; }
 .ask-list a { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 4px; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: color 160ms var(--ease-out), padding 160ms var(--ease-out); }
+.ask-list a { align-items: center; justify-content: flex-start; gap: 12px; }
+.ask-list a > span { margin-left: auto; }
+.ask-ico { flex: none; color: var(--muted); }
 .ask-list strong { font-size: 1.0625rem; font-weight: 700; }
 .ask-list a > span { color: var(--muted); font-variant-numeric: tabular-nums; }
 .ask-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--muted); cursor: pointer; }
