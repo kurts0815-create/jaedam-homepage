@@ -108,7 +108,7 @@ h3 { font-size: 1.25rem; }
 @media (hover: hover) and (pointer: fine) { .hero-pause:hover { color: var(--blue); border-color: var(--blue); } }
 .hero-in { display: flex; flex-direction: column; justify-content: center; min-height: min(calc(100svh - 89px), 540px); padding-block: clamp(48px, 6vw, 72px); }
 /* 서체는 Pretendard 하나. 가는 약속 한 줄 아래에 굵고 큰 이름을 굵기 차이로만 세운다 */
-.hero-title { display: grid; gap: 0.14em; font-size: clamp(2.75rem, 1rem + 5.6vw, 5.75rem); line-height: 1.1; letter-spacing: -0.04em; color: var(--blue); }
+.hero-title { font-family: 'Wanted Sans Variable', var(--font); display: grid; gap: 0.14em; font-size: clamp(2.75rem, 1rem + 5.6vw, 5.75rem); line-height: 1.1; letter-spacing: -0.04em; color: var(--blue); }
 .ht-slogan { font-size: 0.5em; font-weight: 300; letter-spacing: -0.02em; }
 .ht-name { font-weight: 800; }
 .hero .lead { margin-top: clamp(24px, 3vw, 36px); max-width: 24em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem); font-weight: 500; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); }
