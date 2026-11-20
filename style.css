@@ -235,7 +235,10 @@ h3 { font-size: 1.25rem; }
 .m-block { fill: var(--wash); }
 .m-bldg { fill: var(--pale); }
 .m-zebra { fill: #8fa3bf; }
-.m-plaza { fill: var(--paper); opacity: 0.75; }
+.m-plaza { fill: #f6f3ec; }
+.m-tile { fill: none; stroke: #ece7dc; stroke-width: 1; }
+.m-tree rect { fill: #e6e0d2; }
+.map .m-plaza-t { fill: #8f8572; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; stroke: #f6f3ec; }
 .m-park { fill: var(--blue); }
 .map .m-park-t { fill: var(--paper); font-size: 13px; font-weight: 700; text-anchor: middle; stroke: none; }
 .m-here { fill: var(--blue); }
@@ -245,7 +248,7 @@ h3 { font-size: 1.25rem; }
 .m-hatch { stroke: var(--line); stroke-width: 1.5; }
 .m-pave { fill: var(--line); }
 .m-roof { fill: none; stroke: var(--paper); stroke-width: 1.5; opacity: 0.75; }
-.m-tree { fill: #c9dccd; }
+.m-tree circle { fill: #b9d2bf; }
 .m-compass { fill: var(--paper); stroke: var(--line); }
 .map text { paint-order: stroke; stroke: var(--wash); stroke-width: 4px; stroke-linejoin: round; }
 .map .m-num { fill: var(--paper); font-size: 14px; font-weight: 800; stroke: none; }
