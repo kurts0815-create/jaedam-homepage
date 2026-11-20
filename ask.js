@@ -74,3 +74,14 @@
     to.scrollIntoView();
   });
 })();
+
+/* 업무 목록: 하나를 열면 나머지는 닫는다(같은 기능이 없는 오래된 브라우저용). */
+(function () {
+  var items = document.querySelectorAll('.svc-list details');
+  items.forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (!d.open) return;
+      items.forEach(function (o) { if (o !== d) o.open = false; });
+    });
+  });
+})();

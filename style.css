@@ -286,22 +286,41 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- 업무 분야 목록 ---------- */
 .svc-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-.svc-list a { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) auto; align-items: center; gap: 4px 20px; padding: 22px 8px; border-bottom: 1px solid var(--line); color: var(--body); text-decoration: none; transition: background-color 180ms var(--ease-out), padding 180ms var(--ease-out); }
+.svc-list > li { border-bottom: 1px solid var(--line); }
+.svc-list summary { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) auto; align-items: center; gap: 4px 20px; padding: 22px 8px; color: var(--body); cursor: pointer; list-style: none; border-radius: 10px; transition: background-color 180ms var(--ease-out); }
+.svc-list summary::-webkit-details-marker { display: none; }
+.svc-list summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .sl-num { color: var(--blue); font-size: 1.125rem; font-weight: 800; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
 .sl-text { display: grid; gap: 4px; }
 .sl-text strong { color: var(--ink); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
-.sl-arrow { color: var(--muted); transition: transform 180ms var(--ease-out), color 180ms ease; }
+.sl-arrow { color: var(--muted); transition: transform 220ms var(--ease-out), color 180ms ease; }
+.svc-list details[open] .sl-arrow { transform: rotate(180deg); color: var(--blue); }
+.svc-list details[open] summary { background: var(--wash); }
+.sl-body { display: grid; gap: 8px; margin: 0; padding: 4px 8px 24px calc(3.5rem + 28px); list-style: none; }
+.sl-body li { position: relative; padding-left: 16px; color: var(--ink); }
+.sl-body li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 8px; height: 2px; background: var(--blue); }
+@media (prefers-reduced-motion: no-preference) {
+  .svc-list details[open] .sl-body { animation: sl-open 240ms var(--ease-out); }
+}
+@keyframes sl-open { from { opacity: 0; transform: translateY(-6px); } }
 @media (hover: hover) and (pointer: fine) {
-  .svc-list a:hover { background: var(--wash); padding-inline: 16px; }
-  .svc-list a:hover .sl-arrow { color: var(--blue); transform: translateX(4px); }
+  .svc-list summary:hover { background: var(--wash); }
+  .svc-list summary:hover .sl-arrow { color: var(--blue); }
 }
 .svc-head .sl-num { display: block; margin-bottom: 8px; }
 
-/* ---------- 재산 안내 한 칸 ---------- */
-.why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: end; gap: 32px var(--col-gap); padding: clamp(36px, 5vw, 72px); border-radius: var(--r); background: var(--blue); color: var(--pale); }
-.why h2 { color: var(--paper); font-size: clamp(2rem, 1.2rem + 2.8vw, 3.5rem); line-height: 1.15; }
-.why-text p { font-size: 1.1875rem; line-height: 1.7; color: var(--paper); }
-.why-text .why-sub { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.24); font-size: 1rem; color: var(--pale); }
+/* ---------- 재산·기장 두 칸 ---------- */
+.why { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.why-card { display: flex; flex-direction: column; gap: 20px; padding: clamp(32px, 4vw, 56px); border-radius: var(--r); }
+.why-card h2 { font-size: clamp(1.875rem, 1.2rem + 2.2vw, 3rem); line-height: 1.15; }
+.why-card p:last-child { margin-top: auto; padding-top: 24px; font-size: 1.125rem; line-height: 1.7; }
+.why-tag { font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.04em; }
+.why-blue { background: var(--blue); color: var(--paper); }
+.why-blue h2 { color: var(--paper); }
+.why-blue .why-tag { color: var(--pale); }
+.why-grey { background: #e9edf2; color: var(--body); }
+.why-grey h2 { color: var(--ink); }
+.why-grey .why-tag { color: var(--blue); }
 
 /* ---------- 간편 상담: 가운데 한 칸 ---------- */
 .consult { max-width: calc(760px + var(--gutter) * 2); }
@@ -387,9 +406,9 @@ h3 { font-size: 1.25rem; }
   .pcard-line { font-size: 0.8125rem; }
   .fees { grid-template-columns: minmax(0, 1fr); }
   .why { grid-template-columns: minmax(0, 1fr); }
-  .svc-list a { grid-template-columns: 2.5rem minmax(0, 1fr); align-items: start; padding-inline: 4px; }
+  .svc-list summary { grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: start; padding-inline: 4px; }
   .svc-list .sl-num { padding-top: 3px; }
-  .sl-arrow { display: none; }
+  .sl-body { padding-left: calc(2.5rem + 24px); }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .form-foot .btn { width: 100%; }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
