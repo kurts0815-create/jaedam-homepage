@@ -283,6 +283,14 @@ h3 { font-size: 1.25rem; }
 .foot .gap { display: inline-block; width: 1.25em; }
 .foot-copy { margin-top: 28px; }
 
+/* ---------- 첫 페이지: 스크롤하면 구역마다 화면에 맞춰 멈춘다(넓고 충분히 높은 화면에서만) ---------- */
+@media (min-width: 901px) and (min-height: 760px) {
+  html:has(body.home) { scroll-snap-type: y mandatory; scroll-padding-top: 89px; }
+  .home main > section { scroll-snap-align: start; }
+  .home main > .band { display: grid; align-content: center; min-height: calc(100svh - 89px); padding-block: clamp(40px, 5vh, 72px); }
+  .home .foot { scroll-snap-align: end; }
+}
+
 /* ---------- 상담 문의 창 ---------- */
 .ask { width: min(420px, calc(100vw - 32px)); margin: auto; padding: 0; border: 0; border-radius: 20px; background: var(--paper); color: var(--body); box-shadow: 0 24px 64px rgba(15, 27, 45, 0.24); }
 .ask::backdrop { background: rgba(15, 27, 45, 0.48); }
