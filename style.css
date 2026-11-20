@@ -174,40 +174,10 @@ h3 { font-size: 1.25rem; }
 .people-wide .pcard-line { font-size: 1.0625rem; }
 
 /* 업무 그림 */
-.art { display: block; width: 100%; height: auto; }
-.a-g { fill: var(--pale); }
-.a-b { fill: var(--blue); }
-.a-i { fill: var(--ink); }
-.a-m { fill: var(--muted); }
-.a-pf { fill: var(--paper); }
-.a-pale { fill: var(--pale); }
-.a-p { fill: var(--paper); stroke: var(--line); stroke-width: 3; }
-.a-ln { fill: none; stroke: var(--line); stroke-width: 4; stroke-linecap: round; }
-.a-w { fill: none; stroke: var(--paper); stroke-width: 4; stroke-linecap: round; }
-.a-s { fill: none; stroke: var(--blue); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.a-sw { fill: none; stroke: var(--paper); stroke-width: 4; }
-.a-si { fill: var(--paper); stroke: var(--ink); stroke-width: 7; }
-.a-sk { fill: none; stroke: var(--ink); stroke-width: 8; stroke-linecap: round; }
 
 /* 홈의 업무 구역: 소개 글 한 칸과 그림 카드 다섯 장 */
-.svc-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.svc-intro { padding: 8px 24px 8px 0; }
-.svc-intro h2 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.375rem); }
-.svc-intro p { margin-top: 20px; }
-.scard { display: flex; flex-direction: column; gap: 4px; padding: 20px 28px 28px; border-radius: var(--r); background: var(--wash); color: var(--body); text-decoration: none; transition: transform 200ms var(--ease-out); }
-.scard .art { margin-bottom: 12px; }
-.scard strong { color: var(--ink); font-size: 1.3125rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; }
-.scard span { font-size: 1rem; }
-.scard:active { transform: scale(0.98); }
-@media (hover: hover) and (pointer: fine) { .scard:hover { transform: translateY(-4px); } }
 
 /* 일하는 방식 두 가지: 색이 다른 판 두 장 */
-.why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
-.tile { display: flex; flex-direction: column; justify-content: space-between; gap: 64px; min-height: 340px; padding: clamp(28px, 3.4vw, 48px); border-radius: var(--r); }
-.tile h2 { color: var(--paper); font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem); }
-.tile p { max-width: 26em; font-size: 1.125rem; }
-.tile-blue { background: var(--blue); color: var(--paper); }
-.tile-ink { background: var(--ink); color: var(--pale); }
 
 /* 수수료 */
 .fees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -285,8 +255,7 @@ h3 { font-size: 1.25rem; }
 .svc:first-child { border-top: 0; padding-top: 0; }
 .svc:last-child { padding-bottom: 0; }
 .svc h2 { font-size: clamp(1.375rem, 1.1rem + 1vw, 1.75rem); color: var(--blue); }
-.svc-head .art { max-width: 300px; margin-top: 20px; }
-.svc p { max-width: 34em; font-size: 1.125rem; color: var(--ink); }
+.svc-head .svc p { max-width: 34em; font-size: 1.125rem; color: var(--ink); }
 .svc ul { margin-top: 20px; display: grid; gap: 8px; }
 .svc li { padding-left: 16px; position: relative; }
 .svc li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 8px; height: 2px; background: var(--blue); }
@@ -314,6 +283,31 @@ h3 { font-size: 1.25rem; }
   .home main > .band { display: grid; align-content: center; min-height: calc(100svh - 89px); padding-block: clamp(40px, 5vh, 72px); }
   .home .foot { scroll-snap-align: end; }
 }
+
+/* ---------- 업무 분야 목록 ---------- */
+.svc-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.svc-list a { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) auto; align-items: center; gap: 4px 20px; padding: 22px 8px; border-bottom: 1px solid var(--line); color: var(--body); text-decoration: none; transition: background-color 180ms var(--ease-out), padding 180ms var(--ease-out); }
+.sl-num { color: var(--blue); font-size: 1.125rem; font-weight: 800; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+.sl-text { display: grid; gap: 4px; }
+.sl-text strong { color: var(--ink); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.sl-arrow { color: var(--muted); transition: transform 180ms var(--ease-out), color 180ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .svc-list a:hover { background: var(--wash); padding-inline: 16px; }
+  .svc-list a:hover .sl-arrow { color: var(--blue); transform: translateX(4px); }
+}
+.svc-head .sl-num { display: block; margin-bottom: 8px; }
+
+/* ---------- 재산 안내 한 칸 ---------- */
+.why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: end; gap: 32px var(--col-gap); padding: clamp(36px, 5vw, 72px); border-radius: var(--r); background: var(--blue); color: var(--pale); }
+.why h2 { color: var(--paper); font-size: clamp(2rem, 1.2rem + 2.8vw, 3.5rem); line-height: 1.15; }
+.why-text p { font-size: 1.1875rem; line-height: 1.7; color: var(--paper); }
+.why-text .why-sub { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.24); font-size: 1rem; color: var(--pale); }
+
+/* ---------- 간편 상담: 가운데 한 칸 ---------- */
+.consult { max-width: calc(760px + var(--gutter) * 2); }
+.consult-head { margin-bottom: 32px; text-align: center; }
+.consult-head p { margin-top: 12px; }
+.consult .form-foot { justify-content: center; }
 
 /* ---------- 간편 상담 양식 ---------- */
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 16px; }
@@ -373,12 +367,7 @@ h3 { font-size: 1.25rem; }
   .hero-in { min-height: 0; }
   .hero-pause { display: none; }
   .split, .cols, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .why { grid-template-columns: minmax(0, 1fr); }
-  .svc-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .svc-intro { grid-column: 1 / -1; padding: 0 0 12px; }
-  .svc-head .art { max-width: 260px; }
-  .tile { min-height: 0; }
-  .profile-img { max-width: 420px; }
+        .svc-head     .profile-img { max-width: 420px; }
   .map { max-width: 640px; }
   .ruled-links a { grid-template-columns: minmax(0, 1fr); }
 }
@@ -393,11 +382,14 @@ h3 { font-size: 1.25rem; }
   .top-cta { display: none; }
   .top nav a { padding: 12px 8px; font-size: 0.9375rem; }
   .rows-fee > div { grid-template-columns: minmax(0, 1fr); }
-  .svc-cards { grid-template-columns: minmax(0, 1fr); }
-  .pcard-text { padding: 64px 16px 16px; }
+    .pcard-text { padding: 64px 16px 16px; }
   .pcard strong { font-size: 1.25rem; }
   .pcard-line { font-size: 0.8125rem; }
   .fees { grid-template-columns: minmax(0, 1fr); }
+  .why { grid-template-columns: minmax(0, 1fr); }
+  .svc-list a { grid-template-columns: 2.5rem minmax(0, 1fr); align-items: start; padding-inline: 4px; }
+  .svc-list .sl-num { padding-top: 3px; }
+  .sl-arrow { display: none; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .form-foot .btn { width: 100%; }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
@@ -406,6 +398,4 @@ h3 { font-size: 1.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn, .pcard, .scard, .ruled-links a, .hero-pause, .hero-flow { transition: none; }
-  .btn:active, .pcard:active, .pcard:hover, .scard:active, .scard:hover { transform: none; }
-}
+  .btn, .pcard,   .btn:active, .pcard:active, .pcard:hover, }
