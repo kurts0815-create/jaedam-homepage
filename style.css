@@ -145,7 +145,9 @@ h3 { font-size: 1.25rem; }
 .fees + .ruled, .fees + .rows { margin-top: 24px; }
 .rows-fee dd strong { color: var(--blue); font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
 .rows-fee .sub { color: var(--muted); font-size: 0.9375rem; }
-.rows-fee a { color: var(--blue); font-weight: 600; }
+.rows-fee a:not(.btn) { color: var(--blue); font-weight: 600; }
+.rows-fee .btn { margin-top: 12px; }
+.more .btn { font-size: 1rem; }
 
 /* 세무사 카드: 사진 위에 이름을 얹는다 */
 .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -159,6 +161,8 @@ h3 { font-size: 1.25rem; }
 .pcard-role { font-size: 1rem; font-weight: 500; }
 .pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
 .pcard-line + .pcard-line { margin-top: 0; }
+.pcard-line + .pcard-edu { margin-top: 8px; }
+.people-wide .pcard-line { white-space: nowrap; }
 @media (hover: hover) and (pointer: fine) { .pcard:hover { transform: translateY(-4px); } }
 
 /* 홈의 세무사 구역: 제목을 따로 두지 않고 큰 사진 두 장에 이름을 얹는다 */
@@ -232,7 +236,19 @@ h3 { font-size: 1.25rem; }
 .m-bldg { fill: var(--pale); }
 .m-zebra { fill: var(--line); }
 .m-here { fill: var(--blue); }
-.m-route { fill: none; stroke: var(--blue); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.m-route { fill: none; stroke: var(--blue); stroke-width: 4.5; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 0.1 9; }
+.m-route-bed { fill: none; stroke: var(--paper); stroke-width: 11; stroke-linejoin: round; stroke-linecap: round; }
+.m-lane { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 6 6; }
+.m-hatch { stroke: var(--line); stroke-width: 1.5; }
+.m-pave { fill: var(--line); }
+.m-roof { fill: none; stroke: var(--paper); stroke-width: 1.5; opacity: 0.75; }
+.m-tree { fill: #c9dccd; }
+.m-compass { fill: var(--paper); stroke: var(--line); }
+.map text { paint-order: stroke; stroke: var(--wash); stroke-width: 4px; stroke-linejoin: round; }
+.map .m-num { fill: var(--paper); font-size: 14px; font-weight: 800; stroke: none; }
+.map .m-walk { fill: var(--blue); font-weight: 700; stroke: var(--paper); }
+.map .m-n { font-size: 10px; font-weight: 700; stroke: none; }
+.map .m-way-bg { stroke: var(--paper); }
 .m-start { fill: var(--blue); stroke: var(--paper); stroke-width: 3; }
 .m-end { fill: var(--paper); stroke: var(--blue); stroke-width: 3; }
 @media (min-width: 561px) {
@@ -348,7 +364,7 @@ h3 { font-size: 1.25rem; }
   html { scroll-padding-top: 80px; }
   .hero { background-position: 78% bottom; }
   .hero-in { min-height: 0; }
-  .hero-pause { top: 12px; bottom: auto; }
+  .hero-pause { display: none; }
   .split, .cols, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .why { grid-template-columns: minmax(0, 1fr); }
   .svc-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -365,7 +381,7 @@ h3 { font-size: 1.25rem; }
   .people-wide .pcard-text { padding: 72px 20px 20px; }
   .people-wide .pcard strong { font-size: 1.375rem; }
   .people-wide .pcard-role { font-size: 0.9375rem; }
-  .people-wide .pcard-line { font-size: 0.875rem; }
+  .people-wide .pcard-line { font-size: 0.8125rem; letter-spacing: -0.02em; }
   .pcard-name { gap: 8px; }
   .top-cta { display: none; }
   .top nav a { padding: 12px 8px; font-size: 0.9375rem; }
