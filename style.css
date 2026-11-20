@@ -183,13 +183,15 @@ h3 { font-size: 1.25rem; }
 .fees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .fee { background: var(--wash); border-radius: var(--r); padding: 32px; }
 .band-wash .fee { background: var(--paper); }
-.fee-a { background: #f2f5f9; }
-.fee-b { background: #e3ebf6; }
-.fee-c { background: #e7efef; }
-.fee-d { background: #e9edf2; }
+.fee-a { background: var(--wash); }
+.fee-b { background: var(--pale); }
+.fee-c { background: var(--blue); }
+.fee.fee-c h3, .fee.fee-c .fee-price { color: var(--paper); }
+.fee.fee-c .fee-vat { color: var(--pale); }
+.fee-d { background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
 .fee-side { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .cols-intro p + p { margin-top: 0; }
-.fee h3 { font-size: 1.125rem; color: var(--ink); }
+.fee h3 { font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
 .fee .fee-price { margin-top: 20px; color: var(--blue); font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fee-wide { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; }
 .fee .fee-text { margin-top: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); letter-spacing: -0.03em; }
