@@ -185,7 +185,7 @@ h3 { font-size: 1.25rem; }
 .band-wash .fee { background: var(--paper); }
 .fee-a { background: #f2f5f9; }
 .fee-b { background: #e3ebf6; }
-.fee-c { background: #f3f0e9; }
+.fee-c { background: #e7efef; }
 .fee-d { background: #e9edf2; }
 .fee-side { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .cols-intro p + p { margin-top: 0; }
