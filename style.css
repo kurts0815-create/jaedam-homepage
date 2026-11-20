@@ -152,6 +152,7 @@ h3 { font-size: 1.25rem; }
 .pcard img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; }
 .pcard-text { position: absolute; inset: auto 0 0 0; display: grid; gap: 2px; padding: 96px 28px 28px; background: linear-gradient(to top, var(--scrim), var(--scrim-0)); }
 .pcard strong { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.pcard-name { display: flex; align-items: baseline; gap: 10px; }
 .pcard-role { font-size: 1rem; font-weight: 500; }
 .pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
 .pcard-line + .pcard-line { margin-top: 0; }
