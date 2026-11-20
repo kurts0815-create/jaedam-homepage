@@ -46,3 +46,28 @@
       .then(function () { btn.disabled = false; });
   });
 })();
+
+/* 첫 페이지: 메뉴로 구역을 옮겨 다녀도 주소에 #구역 표시를 남기지 않고,
+   새로 고침하면 항상 맨 위에서 시작한다. */
+(function () {
+  if (!document.body.classList.contains('home')) return;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  var nav = window.performance && performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  var clean = location.pathname + location.search;
+  if (nav && nav.type === 'reload') {
+    if (location.hash) history.replaceState(null, '', clean);
+    window.scrollTo(0, 0);
+  } else if (location.hash) {
+    // 다른 페이지에서 구역을 찍어 들어온 경우: 그 구역을 보여 준 뒤 주소만 정리한다
+    window.addEventListener('load', function () { history.replaceState(null, '', clean); });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || a.hasAttribute('data-ask') || a.classList.contains('skip')) return;
+    var id = a.getAttribute('href').slice(1);
+    var to = id && document.getElementById(id);
+    if (!to) return;
+    e.preventDefault();
+    to.scrollIntoView();
+  });
+})();
