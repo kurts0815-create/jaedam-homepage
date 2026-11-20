@@ -156,6 +156,42 @@ h3 { font-size: 1.25rem; }
 .pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
 @media (hover: hover) and (pointer: fine) { .pcard:hover { transform: translateY(-4px); } }
 
+/* 홈의 세무사 구역: 제목을 따로 두지 않고 큰 사진 두 장에 이름을 얹는다 */
+.people-wide { gap: 20px; }
+.people-wide .pcard img { aspect-ratio: 1 / 1; }
+.people-wide .pcard-text { padding: 120px 36px 36px; }
+.people-wide .pcard strong { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); }
+.people-wide .pcard-role { font-size: 1.125rem; }
+.people-wide .pcard-line { font-size: 1.0625rem; }
+
+/* 업무 그림 */
+.art { display: block; width: 100%; height: auto; }
+.a-g { fill: var(--pale); }
+.a-b { fill: var(--blue); }
+.a-i { fill: var(--ink); }
+.a-m { fill: var(--muted); }
+.a-pf { fill: var(--paper); }
+.a-pale { fill: var(--pale); }
+.a-p { fill: var(--paper); stroke: var(--line); stroke-width: 3; }
+.a-ln { fill: none; stroke: var(--line); stroke-width: 4; stroke-linecap: round; }
+.a-w { fill: none; stroke: var(--paper); stroke-width: 4; stroke-linecap: round; }
+.a-s { fill: none; stroke: var(--blue); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.a-sw { fill: none; stroke: var(--paper); stroke-width: 4; }
+.a-si { fill: var(--paper); stroke: var(--ink); stroke-width: 7; }
+.a-sk { fill: none; stroke: var(--ink); stroke-width: 8; stroke-linecap: round; }
+
+/* 홈의 업무 구역: 소개 글 한 칸과 그림 카드 다섯 장 */
+.svc-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.svc-intro { padding: 8px 24px 8px 0; }
+.svc-intro h2 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.375rem); }
+.svc-intro p { margin-top: 20px; }
+.scard { display: flex; flex-direction: column; gap: 4px; padding: 20px 28px 28px; border-radius: var(--r); background: var(--wash); color: var(--body); text-decoration: none; transition: transform 200ms var(--ease-out); }
+.scard .art { margin-bottom: 12px; }
+.scard strong { color: var(--ink); font-size: 1.3125rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; }
+.scard span { font-size: 1rem; }
+.scard:active { transform: scale(0.98); }
+@media (hover: hover) and (pointer: fine) { .scard:hover { transform: translateY(-4px); } }
+
 /* 일하는 방식 두 가지: 색이 다른 판 두 장 */
 .why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
 .tile { display: flex; flex-direction: column; justify-content: space-between; gap: 64px; min-height: 340px; padding: clamp(28px, 3.4vw, 48px); border-radius: var(--r); }
@@ -220,6 +256,7 @@ h3 { font-size: 1.25rem; }
 .svc:first-child { border-top: 0; padding-top: 0; }
 .svc:last-child { padding-bottom: 0; }
 .svc h2 { font-size: clamp(1.375rem, 1.1rem + 1vw, 1.75rem); color: var(--blue); }
+.svc-head .art { max-width: 300px; margin-top: 20px; }
 .svc p { max-width: 34em; font-size: 1.125rem; color: var(--ink); }
 .svc ul { margin-top: 20px; display: grid; gap: 8px; }
 .svc li { padding-left: 16px; position: relative; }
@@ -255,6 +292,9 @@ h3 { font-size: 1.25rem; }
   .hero-pause { top: 12px; bottom: auto; }
   .split, .cols, .visit, .svc, .profile { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .why { grid-template-columns: minmax(0, 1fr); }
+  .svc-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc-intro { grid-column: 1 / -1; padding: 0 0 12px; }
+  .svc-head .art { max-width: 260px; }
   .tile { min-height: 0; }
   .profile-img { max-width: 420px; }
   .map { max-width: 640px; }
@@ -262,6 +302,9 @@ h3 { font-size: 1.25rem; }
 }
 @media (max-width: 560px) {
   .people { gap: 12px; }
+  .people-wide { grid-template-columns: minmax(0, 1fr); }
+  .people-wide .pcard-text { padding: 96px 24px 24px; }
+  .svc-cards { grid-template-columns: minmax(0, 1fr); }
   .pcard-text { padding: 64px 16px 16px; }
   .pcard strong { font-size: 1.25rem; }
   .pcard-line { font-size: 0.8125rem; }
@@ -272,6 +315,6 @@ h3 { font-size: 1.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn, .pcard, .ruled-links a, .hero-pause, .hero-flow { transition: none; }
-  .btn:active, .pcard:active, .pcard:hover { transform: none; }
+  .btn, .pcard, .scard, .ruled-links a, .hero-pause, .hero-flow { transition: none; }
+  .btn:active, .pcard:active, .pcard:hover, .scard:active, .scard:hover { transform: none; }
 }
