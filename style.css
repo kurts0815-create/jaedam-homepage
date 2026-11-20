@@ -283,6 +283,30 @@ h3 { font-size: 1.25rem; }
 .foot .gap { display: inline-block; width: 1.25em; }
 .foot-copy { margin-top: 28px; }
 
+/* ---------- 상담 문의 창 ---------- */
+.ask { width: min(420px, calc(100vw - 32px)); margin: auto; padding: 0; border: 0; border-radius: 20px; background: var(--paper); color: var(--body); box-shadow: 0 24px 64px rgba(15, 27, 45, 0.24); }
+.ask::backdrop { background: rgba(15, 27, 45, 0.48); }
+.ask-in { position: relative; padding: 32px 28px 20px; }
+.ask h2 { font-size: 1.5rem; letter-spacing: -0.03em; color: var(--ink); }
+.ask h2 + p { margin-top: 6px; color: var(--muted); }
+.ask-list { margin-top: 20px; }
+.ask-list a { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 4px; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: color 160ms var(--ease-out), padding 160ms var(--ease-out); }
+.ask-list strong { font-size: 1.0625rem; font-weight: 700; }
+.ask-list a > span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.ask-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--muted); cursor: pointer; }
+.ask-close:focus-visible, .ask-list a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (hover: hover) {
+  .ask-list a:hover { color: var(--blue); padding-inline: 10px 4px; }
+  .ask-list a:hover > span { color: var(--blue); }
+  .ask-close:hover { background: var(--wash); color: var(--ink); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ask[open] { animation: ask-in 200ms var(--ease-out); }
+  .ask[open]::backdrop { animation: ask-fade 200ms ease-out; }
+}
+@keyframes ask-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } }
+@keyframes ask-fade { from { opacity: 0; } }
+
 /* ---------- 좁은 화면 ---------- */
 @media (max-width: 900px) {
   .top-in { min-height: 64px; gap: 8px 12px; }
