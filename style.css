@@ -239,8 +239,8 @@ h3 { font-size: 1.25rem; }
 .m-park { fill: var(--blue); }
 .map .m-park-t { fill: var(--paper); font-size: 13px; font-weight: 700; text-anchor: middle; stroke: none; }
 .m-here { fill: var(--blue); }
-.m-route { fill: none; stroke: var(--blue); stroke-width: 4.5; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 0.1 9; }
-.m-route-bed { fill: none; stroke: var(--paper); stroke-width: 11; stroke-linejoin: round; stroke-linecap: round; }
+.m-route { fill: none; stroke: var(--blue); stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+.m-route-bed { fill: none; stroke: var(--paper); stroke-width: 9; stroke-linejoin: round; stroke-linecap: round; }
 .m-lane { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 6 6; }
 .m-hatch { stroke: var(--line); stroke-width: 1.5; }
 .m-pave { fill: var(--line); }
