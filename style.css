@@ -433,6 +433,8 @@ h3 { font-size: 1.25rem; }
   /* 첫 화면 상담 문의: 문구와 떨어뜨려 가운데에 */
   .hero .actions { margin-top: 48px; justify-content: center; }
   .hero .actions .btn-solid { flex: 0 0 auto; min-width: 220px; }
+  /* 푸터 맨 아래 링크 네 개를 한 줄로 */
+  .foot-links { flex-wrap: nowrap; justify-content: space-between; gap: 0 8px; width: 100%; font-size: 0.75rem; letter-spacing: -0.03em; white-space: nowrap; }
   .foot-info { flex-direction: column; }
   .foot-info > div::after { display: none; }
 }
