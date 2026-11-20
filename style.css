@@ -154,6 +154,7 @@ h3 { font-size: 1.25rem; }
 .pcard strong { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
 .pcard-role { font-size: 1rem; font-weight: 500; }
 .pcard-line { margin-top: 8px; font-size: 0.9375rem; line-height: 1.5; }
+.pcard-line + .pcard-line { margin-top: 0; }
 @media (hover: hover) and (pointer: fine) { .pcard:hover { transform: translateY(-4px); } }
 
 /* 홈의 세무사 구역: 제목을 따로 두지 않고 큰 사진 두 장에 이름을 얹는다 */
