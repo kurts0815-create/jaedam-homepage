@@ -1,9 +1,9 @@
-/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 약속과 이름 두 줄을 첫 화면에 크게 세우고, 두 세무사의 사진과 색이 다른 판 두 장으로 이어 간다 · signature: 로고 서체로 쓴 가는 약속 한 줄과 굵은 이름 한 줄 */
+/* Hallmark · custom (brand: 세무회계 재담) · genre editorial · idea: 약속과 이름 두 줄을 첫 화면에 크게 세우고, 두 세무사의 사진과 색이 다른 판 두 장으로 이어 간다 · signature: 입구 간판과 같은 서체·짜임으로 쓴 두 줄 제목 */
 /* Hallmark · pre-emit critique: P3 H4 E4 S4 R4 V3 · weakest: P, 구역 순서는 의뢰인이 지정한 참고 사이트(seoul.tax)를 따랐다; 대신 상자 묶음을 걷어내고 사인의 가는 선 목록을 업무·이유·수수료 구역까지 이어 썼다 */
 /* waive 7b: 로고 원본 파일의 배경이 순백이라 화면 흰색도 순백으로 맞춘다. hero-review: fix · 5 findings · 5 resolved. finish-review: subagent · 10 findings · 9 resolved 1 partial(지도 글자 크기는 원본 이미지 한계, 눌러서 크게 보기로 대응) */
 
-@font-face { font-family: "SCoreDream"; font-weight: 600; font-display: swap; src: url("fonts/scdream-6.woff") format("woff"); }
-@font-face { font-family: "SCoreDream"; font-weight: 300; font-display: swap; src: url("fonts/scdream-3.woff") format("woff"); }
+@font-face { font-family: "GmarketSans"; font-weight: 500; font-display: swap; src: url("fonts/gmarket-m.woff2") format("woff2"); }
+@font-face { font-family: "GmarketSans"; font-weight: 300; font-display: swap; src: url("fonts/gmarket-l.woff2") format("woff2"); }
 
 :root {
   --blue: #114591;        /* 로고 파일 배경색과 동일 */
@@ -18,7 +18,7 @@
   --scrim: rgb(13 27 48 / 0.86);
   --scrim-0: rgb(13 27 48 / 0);
   --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
-  --display: "SCoreDream", var(--font);   /* 로고 글자와 같은 서체. 첫 화면 제목 두 줄에만 쓴다 */
+  --display: "GmarketSans", var(--font);   /* 입구 간판과 같은 서체. 첫 화면 제목 두 줄에만 쓴다 */
   --wrap: 1160px;
   --gutter: clamp(20px, 5vw, 40px);
   --col-gap: 56px;
@@ -99,10 +99,10 @@ h3 { font-size: 1.25rem; }
 /* ---------- 첫 화면 ---------- */
 .hero { background: var(--paper); }
 .hero-in { padding-block: clamp(48px, 7vw, 104px) clamp(64px, 8vw, 120px); }
-/* 로고와 같은 서체(에스코어 드림): 가는 약속 한 줄, 굵은 이름 한 줄 */
-.hero-title { display: grid; gap: 0.16em; font-family: var(--display); font-size: clamp(3.25rem, 0.6rem + 10vw, 9rem); line-height: 1.1; letter-spacing: -0.03em; color: var(--blue); }
-.ht-slogan { font-size: 0.3em; font-weight: 300; letter-spacing: 0; padding-left: 0.12em; }
-.ht-name { font-weight: 600; }
+/* 입구 간판의 짜임: 같은 크기 두 줄, 위는 가늘게 아래는 굵게 */
+.hero-title { display: grid; gap: 0.14em; font-family: var(--display); font-size: clamp(2.25rem, 1rem + 4.4vw, 4.5rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--blue); }
+.ht-slogan { font-weight: 300; }
+.ht-name { font-weight: 500; }
 .hero .lead { margin-top: clamp(32px, 4vw, 56px); max-width: 24em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem); font-weight: 500; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); }
 .hero .actions { margin-top: clamp(32px, 4vw, 48px); }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
