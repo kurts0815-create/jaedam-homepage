@@ -293,6 +293,26 @@ h3 { font-size: 1.25rem; }
   .home .foot { scroll-snap-align: end; }
 }
 
+/* ---------- 간편 상담 양식 ---------- */
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 16px; }
+.field { display: grid; gap: 6px; }
+.field-wide { grid-column: 1 / -1; }
+.field > span { font-size: 0.9375rem; font-weight: 600; color: var(--ink); }
+.field em { font-style: normal; font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); font: inherit; transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out); }
+.field textarea { min-height: 112px; resize: vertical; line-height: 1.6; }
+.field ::placeholder { color: var(--muted); opacity: 1; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(17, 69, 145, 0.16); }
+.form-trap { position: absolute; left: -9999px; }
+.agree { display: flex; gap: 10px; align-items: flex-start; margin-top: 16px; font-size: 0.9375rem; color: var(--ink); cursor: pointer; }
+.agree input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--blue); }
+.agree small { display: block; margin-top: 2px; font-size: 0.875rem; color: var(--muted); }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 20px; }
+.form-foot .btn { min-width: 200px; border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+.form-foot .btn[disabled] { opacity: 0.6; cursor: default; }
+.form-msg { font-weight: 600; color: var(--blue); }
+.form-msg.is-bad { color: #b3261e; }
+
 /* ---------- 상담 문의 창 ---------- */
 .ask { width: min(420px, calc(100vw - 32px)); margin: auto; padding: 0; border: 0; border-radius: 20px; background: var(--paper); color: var(--body); box-shadow: 0 24px 64px rgba(15, 27, 45, 0.24); }
 .ask::backdrop { background: rgba(15, 27, 45, 0.48); }
@@ -352,6 +372,8 @@ h3 { font-size: 1.25rem; }
   .pcard strong { font-size: 1.25rem; }
   .pcard-line { font-size: 0.8125rem; }
   .fees { grid-template-columns: minmax(0, 1fr); }
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .form-foot .btn { width: 100%; }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
   .actions .btn-solid { flex-basis: 100%; }
   .foot .gap { display: block; width: 0; height: 0; }
