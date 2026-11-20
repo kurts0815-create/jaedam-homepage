@@ -282,13 +282,12 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- 좁은 화면 ---------- */
 @media (max-width: 900px) {
-  .top { position: static; }
   .top-in { flex-wrap: wrap; padding-block: 8px; gap: 0 16px; }
   .top nav { order: 3; width: 100%; margin-left: -12px; }
   .top nav a { padding: 12px; }
   .top-cta { margin-left: auto; }
   .brand img { height: 52px; }
-  html { scroll-padding-top: 16px; }
+  html { scroll-padding-top: 124px; }
   .hero { background-position: 78% bottom; }
   .hero-in { min-height: 0; }
   .hero-pause { top: 12px; bottom: auto; }
