@@ -41,11 +41,11 @@
     '  vec3 L=normalize(vec3(-0.35,-0.62,0.70));',
     '  float diff=clamp(dot(n,L),0.,1.);',
     '  float spec=pow(clamp(dot(n,normalize(L+vec3(0.,0.,1.))),0.,1.),38.0);',
-    '  float ao=mix(0.74,1.0,smoothstep(0.0,0.80,c.y));          // 가닥 사이 골의 그늘',
-    '  float under=mix(0.60,1.0,smoothstep(0.0,0.50,c.z));       // 위 판이 드리우는 그늘',
-    '  float lit=(0.42+0.70*diff)*ao*under+0.22*spec;',
-    '  vec3 col=mix(vec3(0.640,0.675,0.730),vec3(1.0),clamp(lit,0.,1.));',
-    '  float f=0.30+0.70*smoothstep(0.08,0.62,q.x);',
+    '  float ao=mix(0.87,1.0,smoothstep(0.0,0.80,c.y));          // 가닥 사이 골의 그늘',
+    '  float under=mix(0.80,1.0,smoothstep(0.0,0.50,c.z));       // 위 판이 드리우는 그늘',
+    '  float lit=(0.42+0.70*diff)*ao*under+0.10*spec;',
+    '  vec3 col=mix(vec3(0.790,0.815,0.855),vec3(1.0),clamp(lit,0.,1.));',
+    '  float f=0.16+0.56*smoothstep(0.08,0.66,q.x);',
     '  gl_FragColor=vec4(mix(vec3(1.0),col,f),1.0);',
     '}'
   ].join('\n');
