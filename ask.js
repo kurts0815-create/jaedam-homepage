@@ -33,7 +33,10 @@
     e.preventDefault();
     btn.disabled = true;
     say('접수하는 중입니다…');
-    fetch(form.action, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+    // 한글 항목 이름이 깨지지 않도록 JSON 으로 보내고, 비워 둔 칸(이메일 등)은 보내지 않는다
+    var data = {};
+    new FormData(form).forEach(function (v, k) { if (String(v).trim() !== '') data[k] = v; });
+    fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         if (!d.success) throw new Error(d.message || 'fail');
