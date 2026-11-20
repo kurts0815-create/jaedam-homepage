@@ -142,7 +142,7 @@ h3 { font-size: 1.25rem; }
 .ruled-links a { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 4px 32px; align-items: baseline; padding-block: 24px; text-decoration: none; color: var(--body); transition: background-color 160ms ease; }
 .ruled-links strong { color: var(--blue); }
 @media (hover: hover) and (pointer: fine) { .ruled-links a:hover { background: var(--wash); } }
-.fees + .ruled, .fees + .rows { margin-top: 24px; }
+
 .rows-fee dd strong { color: var(--blue); font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
 .rows-fee .sub { color: var(--muted); font-size: 0.9375rem; }
 .rows-fee a:not(.btn) { color: var(--blue); font-weight: 600; }
@@ -183,6 +183,12 @@ h3 { font-size: 1.25rem; }
 .fees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .fee { background: var(--wash); border-radius: var(--r); padding: 32px; }
 .band-wash .fee { background: var(--paper); }
+.fee-a { background: #f2f5f9; }
+.fee-b { background: #e3ebf6; }
+.fee-c { background: #f3f0e9; }
+.fee-d { background: #e9edf2; }
+.fee-side { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cols-intro p + p { margin-top: 0; }
 .fee h3 { font-size: 1.125rem; color: var(--ink); }
 .fee .fee-price { margin-top: 20px; color: var(--blue); font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fee-wide { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; }
@@ -314,7 +320,7 @@ h3 { font-size: 1.25rem; }
 .why-card { display: flex; flex-direction: column; gap: 20px; padding: clamp(32px, 4vw, 56px); border-radius: var(--r); }
 .why-card h2 { font-size: clamp(1.875rem, 1.2rem + 2.2vw, 3rem); line-height: 1.15; }
 .why-card p:last-child { margin-top: auto; padding-top: 24px; font-size: 1.125rem; line-height: 1.7; }
-.why-tag { font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.04em; }
+.why-tag { font-size: 1.1875rem; font-weight: 800; letter-spacing: 0.02em; }
 .why-blue { background: var(--blue); color: var(--paper); }
 .why-blue h2 { color: var(--paper); }
 .why-blue .why-tag { color: var(--pale); }
