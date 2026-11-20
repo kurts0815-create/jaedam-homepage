@@ -234,7 +234,10 @@ h3 { font-size: 1.25rem; }
 .m-ground { fill: var(--paper); }
 .m-block { fill: var(--wash); }
 .m-bldg { fill: var(--pale); }
-.m-zebra { fill: var(--line); }
+.m-zebra { fill: #8fa3bf; }
+.m-plaza { fill: var(--paper); opacity: 0.75; }
+.m-park { fill: var(--blue); }
+.map .m-park-t { fill: var(--paper); font-size: 13px; font-weight: 700; text-anchor: middle; stroke: none; }
 .m-here { fill: var(--blue); }
 .m-route { fill: none; stroke: var(--blue); stroke-width: 4.5; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 0.1 9; }
 .m-route-bed { fill: none; stroke: var(--paper); stroke-width: 11; stroke-linejoin: round; stroke-linecap: round; }
