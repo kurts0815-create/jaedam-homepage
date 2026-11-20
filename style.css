@@ -275,12 +275,21 @@ h3 { font-size: 1.25rem; }
 .profile .more { font-size: 1.0625rem; font-weight: 600; }
 
 /* ---------- 하단 ---------- */
-.foot { border-top: 1px solid var(--line); padding-block: 48px; font-size: 0.9375rem; color: var(--muted); }
-.foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px 56px; }
-.foot-name { color: var(--ink); font-weight: 700; font-size: 1.0625rem; margin-bottom: 8px; }
-.foot a { color: inherit; }
-.foot .gap { display: inline-block; width: 1.25em; }
-.foot-copy { margin-top: 28px; }
+.foot { padding-block: 44px 36px; background: var(--ink); color: #9aa6b8; font-size: 0.875rem; line-height: 1.7; }
+.foot a { color: inherit; text-decoration: none; }
+.foot a:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+.foot-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.foot-brand { color: var(--paper) !important; font-size: 1.125rem; font-weight: 800; letter-spacing: -0.02em; }
+.foot-nav, .foot-links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 0; padding: 0; list-style: none; }
+.foot-nav a { color: #d3dae5; font-weight: 600; }
+.foot-info { display: flex; flex-wrap: wrap; gap: 6px 0; margin: 24px 0 0; }
+.foot-info > div { display: flex; gap: 8px; }
+.foot-info > div:not(:last-child)::after { content: ""; align-self: center; width: 1px; height: 11px; margin: 0 14px; background: rgba(255, 255, 255, 0.2); }
+.foot-info-2 { margin-top: 6px; }
+.foot-info dt { color: #6f7c90; }
+.foot-info dd { margin: 0; color: #c2cad6; }
+.foot-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 28px; color: #6f7c90; }
+@media (hover: hover) and (pointer: fine) { .foot a:hover { color: var(--paper); } }
 
 /* ---------- 첫 페이지: 스크롤하면 구역마다 화면에 맞춰 멈춘다(넓고 충분히 높은 화면에서만) ---------- */
 @media (min-width: 901px) and (min-height: 760px) {
@@ -419,7 +428,8 @@ h3 { font-size: 1.25rem; }
   .form-foot .btn { width: 100%; }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
   .actions .btn-solid { flex-basis: 100%; }
-  .foot .gap { display: block; width: 0; height: 0; }
+  .foot-info { flex-direction: column; }
+  .foot-info > div::after { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
