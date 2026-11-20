@@ -211,6 +211,8 @@ h3 { font-size: 1.25rem; }
 .band-wash .fee { background: var(--paper); }
 .fee h3 { font-size: 1.125rem; color: var(--ink); }
 .fee .fee-price { margin-top: 20px; color: var(--blue); font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fee-wide { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; }
+.fee .fee-text { margin-top: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); letter-spacing: -0.03em; }
 .fee-pre, .fee-unit { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--muted); }
 .fee-unit { margin-left: 4px; }
 .fee .fee-vat { margin-top: 4px; font-size: 0.9375rem; color: var(--muted); }
