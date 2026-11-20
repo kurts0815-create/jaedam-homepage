@@ -197,6 +197,9 @@ h3 { font-size: 1.25rem; }
   .map .m-dest { font-size: 17px; }
 }
 .facts { margin-top: 28px; }
+.facts-top { margin-top: 0; }
+.visit-top { align-items: start; }
+.rows-stack { margin-top: 28px; }
 .facts > div, .rows > div { display: grid; grid-template-columns: minmax(0, 5em) minmax(0, 1fr); gap: 4px 20px; padding-block: 16px; border-top: 1px solid var(--line); }
 .facts > div:last-child, .rows > div:last-child { border-bottom: 1px solid var(--line); }
 .facts dt, .rows dt { color: var(--muted); }
