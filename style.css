@@ -142,7 +142,10 @@ h3 { font-size: 1.25rem; }
 .ruled-links a { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 4px 32px; align-items: baseline; padding-block: 24px; text-decoration: none; color: var(--body); transition: background-color 160ms ease; }
 .ruled-links strong { color: var(--blue); }
 @media (hover: hover) and (pointer: fine) { .ruled-links a:hover { background: var(--wash); } }
-.fees + .ruled { margin-top: 24px; }
+.fees + .ruled, .fees + .rows { margin-top: 24px; }
+.rows-fee dd strong { color: var(--blue); font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.rows-fee .sub { color: var(--muted); font-size: 0.9375rem; }
+.rows-fee a { color: var(--blue); font-weight: 600; }
 
 /* 세무사 카드: 사진 위에 이름을 얹는다 */
 .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -282,12 +285,10 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- 좁은 화면 ---------- */
 @media (max-width: 900px) {
-  .top-in { flex-wrap: wrap; padding-block: 8px; gap: 0 16px; }
-  .top nav { order: 3; width: 100%; margin-left: -12px; }
-  .top nav a { padding: 12px; }
-  .top-cta { margin-left: auto; }
-  .brand img { height: 52px; }
-  html { scroll-padding-top: 124px; }
+  .top-in { min-height: 64px; gap: 8px 12px; }
+  .top nav a { padding: 12px 10px; }
+  .brand img { height: 44px; }
+  html { scroll-padding-top: 80px; }
   .hero { background-position: 78% bottom; }
   .hero-in { min-height: 0; }
   .hero-pause { top: 12px; bottom: auto; }
@@ -304,7 +305,14 @@ h3 { font-size: 1.25rem; }
 @media (max-width: 560px) {
   .people { gap: 12px; }
   .people-wide { grid-template-columns: minmax(0, 1fr); }
-  .people-wide .pcard-text { padding: 96px 24px 24px; }
+  .people-wide .pcard-text { padding: 72px 20px 20px; }
+  .people-wide .pcard strong { font-size: 1.375rem; }
+  .people-wide .pcard-role { font-size: 0.9375rem; }
+  .people-wide .pcard-line { font-size: 0.875rem; }
+  .pcard-name { gap: 8px; }
+  .top-cta { display: none; }
+  .top nav a { padding: 12px 8px; font-size: 0.9375rem; }
+  .rows-fee > div { grid-template-columns: minmax(0, 1fr); }
   .svc-cards { grid-template-columns: minmax(0, 1fr); }
   .pcard-text { padding: 64px 16px 16px; }
   .pcard strong { font-size: 1.25rem; }
