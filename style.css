@@ -511,9 +511,6 @@ h3 { font-size: 1.25rem; }
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 10.5l7-7M5 3.5h5.5V9' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
   transition: transform 220ms var(--ease-out);
 }
-@media (hover: hover) and (pointer: fine) {
-  .btn:hover::after { transform: translate(2px, -2px); }
-}
 
 /* ---------- 기장·재산: 왼쪽은 짙은 남색, 오른쪽은 재담 블루로 화면 끝까지 나눈다 ---------- */
 .why-band { background: linear-gradient(to right, var(--slate) 50%, var(--blue) 50%); }
@@ -603,3 +600,28 @@ main > :first-child { border-top: var(--top-h) solid transparent; }
 .fee.fee-c { --check-ink: var(--blue); }
 .fee.fee-c .fee-list { border-top-color: rgb(255 255 255 / 0.22); }
 .fee.fee-c .fee-list li, .fee.fee-c .fee-list svg { color: var(--paper); }
+
+/* ---------- 단추 마우스 효과: 진한 색이 왼쪽에서 오른쪽으로 차오르고, 화살표가 ↗에서 →로 돈다 ---------- */
+.btn { position: relative; isolation: isolate; overflow: hidden; }
+.btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: var(--sweep, var(--navy)); transform: scaleX(0); transform-origin: left center;
+  transition: transform 460ms var(--ease-out);
+}
+.btn-solid { --sweep: var(--navy); }
+.btn-ghost { --sweep: var(--blue); }
+.btn-light { --sweep: var(--pale); }
+.btn-line { --sweep: var(--paper); }
+.btn::after { transition: transform 320ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover::before { transform: scaleX(1); }
+  .btn:hover::after { transform: rotate(45deg); }
+  .btn-solid:hover { background: var(--blue); }
+  .btn-ghost:hover { border-color: var(--blue); color: var(--paper); }
+  .btn-light:hover { background: var(--paper); }
+  .btn-line:hover { background: transparent; color: var(--blue); }
+}
+.btn:focus-visible::before { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  .btn::before, .btn::after { transition: none; }
+}
