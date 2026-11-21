@@ -502,3 +502,71 @@ h3 { font-size: 1.25rem; }
   .why-band .why-card, .why-band .why-card + .why-card { padding: 0; border-left: 0; }
   .why-band .why-card + .why-card { margin-top: 48px; padding-top: 48px; border-top: 1px solid rgb(255 255 255 / 0.2); }
 }
+
+/* ---------- 단추: 오른쪽 위 화살표, 마우스를 올리면 화살표가 그쪽으로 움직인다 ---------- */
+.btn::after {
+  content: ""; flex: none; width: 13px; height: 13px; margin-left: 10px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 10.5l7-7M5 3.5h5.5V9' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.5 10.5l7-7M5 3.5h5.5V9' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 220ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover::after { transform: translate(2px, -2px); }
+}
+
+/* ---------- 기장·재산: 왼쪽은 짙은 남색, 오른쪽은 재담 블루로 화면 끝까지 나눈다 ---------- */
+.why-band { background: linear-gradient(to right, var(--navy) 50%, var(--blue) 50%); }
+.why-band .why-card + .why-card { border-left: 0; }
+.why-band .why-blue .why-tag { color: rgb(255 255 255 / 0.72); }
+.why-band .why-blue p:last-child { color: #e1e9f5; }
+@media (max-width: 900px) {
+  .why-band { background: none; padding-block: 0; }
+  .why-band .wrap { padding-inline: 0; }
+  .why-band .why-card, .why-band .why-card + .why-card { margin: 0; padding: clamp(56px, 12vw, 88px) var(--gutter); border-top: 0; }
+  .why-band .why-grey { background: var(--navy); }
+  .why-band .why-blue { background: var(--blue); }
+}
+
+/* ---------- 머리글: 스크롤하면 바탕이 사라지고 로고 알약과 메뉴 단추만 떠서 따라온다 ---------- */
+.menu-btn { display: none; }
+.top-menu[hidden] { display: none; }
+.top { transition: background-color 220ms ease, border-color 220ms ease; }
+.top.is-float { background: transparent; border-bottom-color: transparent; pointer-events: none; }
+.top.is-float nav, .top.is-float .top-cta { display: none; }
+.top.is-float .brand, .top.is-float .menu-btn, .top.is-float .top-menu { pointer-events: auto; }
+.top.is-float .brand { padding: 8px 18px; border-radius: 999px; background: var(--paper); box-shadow: 0 8px 24px rgb(15 27 45 / 0.14); animation: float-in 320ms var(--ease-out) both; }
+.top.is-float .brand img { height: 44px; }
+.top.is-float .menu-btn {
+  display: grid; place-content: center; gap: 5px; margin-left: auto; width: 56px; height: 56px; padding: 0;
+  border: 0; border-radius: 50%; background: var(--paper); box-shadow: 0 8px 24px rgb(15 27 45 / 0.14); color: var(--ink); cursor: pointer;
+  animation: float-in 320ms var(--ease-out) both;
+}
+.menu-btn span { display: block; width: 22px; height: 2px; border-radius: 2px; background: currentColor; transition: transform 220ms var(--ease-out), opacity 160ms ease; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.top-in { position: relative; }
+.top-menu {
+  position: absolute; top: calc(100% - 4px); right: var(--gutter); width: min(280px, calc(100vw - 32px)); padding: 12px;
+  border-radius: var(--r); background: var(--paper); box-shadow: 0 16px 40px rgb(15 27 45 / 0.18); animation: float-in 220ms var(--ease-out) both;
+}
+.top-menu ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.top-menu a:not(.btn) { display: block; padding: 14px 12px; border-radius: 10px; color: var(--ink); font-weight: 600; text-decoration: none; }
+.top-menu a:not(.btn):focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.top-menu .btn { width: 100%; margin-top: 8px; }
+@media (hover: hover) and (pointer: fine) {
+  .top-menu a:not(.btn):hover { background: var(--wash); }
+  .top.is-float .menu-btn:hover { color: var(--blue); }
+}
+@keyframes float-in { from { opacity: 0; transform: translateY(-6px) scale(0.96); } }
+@media (max-width: 560px) {
+  .top.is-float .brand { padding: 6px 14px; }
+  .top.is-float .brand img { height: 36px; }
+  .top.is-float .menu-btn { width: 48px; height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn::after, .menu-btn span, .top { transition: none; }
+  .btn:hover::after { transform: none; }
+  .top.is-float .brand, .top.is-float .menu-btn, .top-menu { animation: none; }
+}

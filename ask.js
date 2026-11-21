@@ -85,3 +85,30 @@
     });
   });
 })();
+
+
+/* 머리글: 스크롤하면 로고와 메뉴 단추만 떠서 따라온다 */
+(function () {
+  var top = document.querySelector('.top');
+  var btn = top && top.querySelector('.menu-btn');
+  var menu = document.getElementById('top-menu');
+  if (!top || !btn || !menu) return;
+  function setOpen(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    menu.hidden = !open;
+  }
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var float = window.scrollY > 120;
+    top.classList.toggle('is-float', float);
+    if (!float) setOpen(false);
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+  btn.addEventListener('click', function () { setOpen(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); btn.focus(); } });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) setOpen(false); });
+})();
