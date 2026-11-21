@@ -643,3 +643,11 @@ main > :first-child { border-top: var(--top-h) solid transparent; }
   .people-wide .pcard-line { font-size: 0.75rem; }
   .people-wide .pcard-line + .pcard-edu { margin-top: 4px; }
 }
+
+/* 수수료 숫자만 G마켓 산스 Bold(명함과 같은 글꼴). 숫자와 쉼표만 잘라 넣은 1.3KB 파일이라 한글은 Pretendard 그대로 */
+@font-face {
+  font-family: "GmarketNum"; font-weight: 700 900; font-display: swap;
+  src: url("fonts/gmarket-bold-num.woff2") format("woff2");
+  unicode-range: U+0030-0039, U+002C;
+}
+.fee .fee-price { font-family: "GmarketNum", var(--font); letter-spacing: -0.03em; }
