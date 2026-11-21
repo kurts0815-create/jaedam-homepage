@@ -633,3 +633,13 @@ main > :first-child { border-top: var(--top-h) solid transparent; }
 
 /* 맨 아래 상호 링크: 누르는 높이 44px */
 .foot-brand { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* 휴대폰 세무사 카드(2026-11-21 B안): 정사각형, 음영은 글씨 뒤만, 글씨 한 단계 작게. 얼굴과 가슴까지 밝게 */
+@media (max-width: 560px) {
+  .people-wide .pcard img { aspect-ratio: 1 / 1; object-position: center 8%; }
+  .people-wide .pcard-text { padding: 56px 18px 16px; background: linear-gradient(to top, var(--scrim) 0%, var(--scrim) 34%, var(--scrim-0) 100%); text-shadow: 0 1px 8px rgb(13 27 48 / 0.35); }
+  .people-wide .pcard strong { font-size: 1.25rem; }
+  .people-wide .pcard-role { font-size: 0.875rem; }
+  .people-wide .pcard-line { font-size: 0.75rem; }
+  .people-wide .pcard-line + .pcard-edu { margin-top: 4px; }
+}
