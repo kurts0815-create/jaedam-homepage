@@ -582,3 +582,14 @@ h3 { font-size: 1.25rem; }
 main > :first-child { border-top: var(--top-h) solid transparent; }
 .hero { background-origin: border-box; }
 .hero-flow { inset: auto 0 0 0; top: calc(-1 * var(--top-h)); height: calc(100% + var(--top-h)); }
+
+/* 떠 있는 로고 판과 메뉴 단추: 흰 판 대신 반투명 유리. 로고는 흰 바탕을 뺀 사본(logo-006-clear.png) */
+.top.is-float .brand, .top.is-float .menu-btn {
+  background: rgb(255 255 255 / 0.65);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: 0 4px 18px rgb(15 27 45 / 0.10);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .top.is-float .brand, .top.is-float .menu-btn { background: rgb(255 255 255 / 0.9); }
+}
