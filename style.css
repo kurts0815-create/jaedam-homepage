@@ -573,3 +573,12 @@ h3 { font-size: 1.25rem; }
   .btn:hover::after { transform: none; }
   .top.is-float .brand, .top.is-float .menu-btn, .top-menu { animation: none; }
 }
+
+/* ---------- 머리글은 처음부터 떠 있다: 바탕 없이 로고 판과 메뉴 단추만, 첫 구역이 그 뒤까지 올라온다 ---------- */
+:root { --top-h: 88px; }
+@media (max-width: 900px) { :root { --top-h: 64px; } }
+.top.is-float { margin-bottom: calc(-1 * var(--top-h)); }
+.top.is-float .brand, .top.is-float .menu-btn { animation: none; }
+main > :first-child { border-top: var(--top-h) solid transparent; }
+.hero { background-origin: border-box; }
+.hero-flow { inset: auto 0 0 0; top: calc(-1 * var(--top-h)); height: calc(100% + var(--top-h)); }
