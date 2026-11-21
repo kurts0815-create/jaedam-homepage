@@ -1,0 +1,42 @@
+/* 글꼴 조합 시안 전용(test.html). 실제 사이트에는 쓰지 않는다 */
+@font-face { font-family: "GmarketSans"; font-weight: 300; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff"); }
+@font-face { font-family: "GmarketSans"; font-weight: 500; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff"); }
+@font-face { font-family: "GmarketSans"; font-weight: 700; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff"); }
+
+:root {
+  --f-gmarket: "GmarketSans", "Pretendard Variable", sans-serif;
+  --f-wanted: "Wanted Sans Variable", "Pretendard Variable", sans-serif;
+  --f-bon: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+/* 본문: 1~3안 모두 본고딕 */
+body[data-font="1"], body[data-font="2"], body[data-font="3"] { --font: var(--f-bon); }
+
+/* 1안 명함 통일: 큰 제목·구역 제목·금액 모두 G마켓 산스, 본문 본고딕 */
+body[data-font="1"] .hero-title,
+body[data-font="1"] h2, body[data-font="1"] h3,
+body[data-font="1"] .why-tag, body[data-font="1"] .fee-price, body[data-font="1"] .pcard strong,
+body[data-font="1"] .svc-list strong, body[data-font="1"] .foot-brand { font-family: var(--f-gmarket); letter-spacing: -0.02em; }
+body[data-font="1"] .hero-title { font-weight: 700; }
+body[data-font="1"] .ht-slogan { font-weight: 300; }
+body[data-font="1"] h2, body[data-font="1"] .why-card h2 { font-weight: 700; letter-spacing: -0.03em; }
+body[data-font="1"] h3, body[data-font="1"] .svc-list strong { font-weight: 500; }
+
+/* 2안 섞기: 첫 화면 큰 제목은 원티드 산스, 구역 제목·금액은 G마켓 산스, 본문 본고딕 */
+body[data-font="2"] h2, body[data-font="2"] .why-tag, body[data-font="2"] .fee-price,
+body[data-font="2"] .pcard strong, body[data-font="2"] .foot-brand { font-family: var(--f-gmarket); font-weight: 700; letter-spacing: -0.03em; }
+body[data-font="2"] h3, body[data-font="2"] .svc-list strong { font-family: var(--f-gmarket); font-weight: 500; letter-spacing: -0.02em; }
+
+/* 3안 원티드 중심: 모든 제목은 원티드 산스, 금액 숫자만 G마켓 산스, 본문 본고딕 */
+body[data-font="3"] h2, body[data-font="3"] h3, body[data-font="3"] .why-tag,
+body[data-font="3"] .pcard strong, body[data-font="3"] .svc-list strong, body[data-font="3"] .foot-brand { font-family: var(--f-wanted); letter-spacing: -0.03em; }
+body[data-font="3"] h2 { font-weight: 800; }
+body[data-font="3"] .fee-price { font-family: var(--f-gmarket); font-weight: 700; letter-spacing: -0.02em; }
+
+/* 시안 단추 */
+.ft-bar { position: fixed; left: 16px; bottom: 16px; z-index: 50; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; max-width: calc(100vw - 32px); padding: 8px; border-radius: 14px; background: #fff4c2; box-shadow: 0 8px 24px rgb(15 27 45 / 0.18); font-family: "Pretendard Variable", sans-serif; font-size: 0.8125rem; }
+.ft-bar span { padding: 0 6px; font-weight: 700; color: #4a3b00; }
+.ft-bar button { min-height: 36px; padding: 0 12px; border: 1px solid #c9b45a; border-radius: 10px; background: #fffbe6; color: #4a3b00; font: inherit; font-weight: 700; cursor: pointer; }
+.ft-bar button[aria-pressed="true"] { background: #4a3b00; border-color: #4a3b00; color: #fff; }
+.ft-bar button:focus-visible { outline: 2px solid #114591; outline-offset: 2px; }
+@media (max-width: 900px) { .ft-bar { bottom: calc(84px + env(safe-area-inset-bottom)); left: 8px; right: 8px; } }
