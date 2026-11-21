@@ -12,6 +12,7 @@
   --line: #d3dbe5;
   --wash: #f2f5f9;
   --paper: #ffffff;
+  --slate: #363c45;       /* 기장 띠: 진한 회색 */
   --navy: #0b2f66;        /* 전폭 남색 띠: 재담 블루보다 한 단계 깊게 */
   --scrim: rgb(13 27 48 / 0.86);
   --scrim-0: rgb(13 27 48 / 0);
@@ -515,7 +516,9 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ---------- 기장·재산: 왼쪽은 짙은 남색, 오른쪽은 재담 블루로 화면 끝까지 나눈다 ---------- */
-.why-band { background: linear-gradient(to right, var(--navy) 50%, var(--blue) 50%); }
+.why-band { background: linear-gradient(to right, var(--slate) 50%, var(--blue) 50%); }
+.why-band .why-grey .why-tag { color: #aeb5bf; }
+.why-band .why-grey p:last-child { color: #d6dbe1; }
 .why-band .why-card + .why-card { border-left: 0; }
 .why-band .why-blue .why-tag { color: rgb(255 255 255 / 0.72); }
 .why-band .why-blue p:last-child { color: #e1e9f5; }
@@ -523,7 +526,7 @@ h3 { font-size: 1.25rem; }
   .why-band { background: none; padding-block: 0; }
   .why-band .wrap { padding-inline: 0; }
   .why-band .why-card, .why-band .why-card + .why-card { margin: 0; padding: clamp(56px, 12vw, 88px) var(--gutter); border-top: 0; }
-  .why-band .why-grey { background: var(--navy); }
+  .why-band .why-grey { background: var(--slate); }
   .why-band .why-blue { background: var(--blue); }
 }
 
