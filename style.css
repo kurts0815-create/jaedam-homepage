@@ -625,3 +625,8 @@ main > :first-child { border-top: var(--top-h) solid transparent; }
 @media (prefers-reduced-motion: reduce) {
   .btn::before, .btn::after { transition: none; }
 }
+
+/* 휴대폰: 세무사 이름이 사진 위에서도 또렷하게(흰 글씨 대비 3:1 이상) 그라데이션을 조금 높고 진하게 */
+@media (max-width: 560px) {
+  .people-wide .pcard-text { padding-top: 88px; background: linear-gradient(to top, var(--scrim) 0%, var(--scrim) 48%, var(--scrim-0) 100%); }
+}
