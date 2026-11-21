@@ -295,12 +295,11 @@ h3 { font-size: 1.25rem; }
 @media (hover: hover) and (pointer: fine) { .foot a:hover { color: var(--paper); } }
 
 /* 첫 페이지 구역 붙기 스크롤은 2026-11-21에 껐다: 크롬에서는 proximity도 강제처럼 묶여 트랙패드 스크롤이 튕겼다 */
-}
 
 /* ---------- 업무 분야 목록 ---------- */
 .svc-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .svc-list > li { border-bottom: 1px solid var(--line); }
-.svc-list summary { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) auto; align-items: center; gap: 4px 20px; padding: 22px 8px; color: var(--body); cursor: pointer; list-style: none; border-radius: 10px; transition: background-color 180ms var(--ease-out); }
+.svc-list summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 20px; padding: 22px 8px; color: var(--body); cursor: pointer; list-style: none; border-radius: 10px; transition: background-color 180ms var(--ease-out); }
 .svc-list summary::-webkit-details-marker { display: none; }
 .svc-list summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .sl-num { color: var(--blue); font-size: 1.125rem; font-weight: 800; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
@@ -309,7 +308,7 @@ h3 { font-size: 1.25rem; }
 .sl-arrow { color: var(--muted); transition: transform 220ms var(--ease-out), color 180ms ease; }
 .svc-list details[open] .sl-arrow { transform: rotate(180deg); color: var(--blue); }
 .svc-list details[open] summary { background: var(--wash); }
-.sl-body { display: grid; gap: 8px; margin: 0; padding: 4px 8px 24px calc(3.5rem + 28px); list-style: none; }
+.sl-body { display: grid; gap: 8px; margin: 0; padding: 4px 8px 24px 8px; list-style: none; }
 .sl-body li { position: relative; padding-left: 16px; color: var(--ink); }
 .sl-body li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 8px; height: 2px; background: var(--blue); }
 @media (prefers-reduced-motion: no-preference) {
@@ -419,9 +418,8 @@ h3 { font-size: 1.25rem; }
   .pcard-line { font-size: 0.8125rem; }
   .fees { grid-template-columns: minmax(0, 1fr); }
   .why { grid-template-columns: minmax(0, 1fr); }
-  .svc-list summary { grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: start; padding-inline: 4px; }
-  .svc-list .sl-num { padding-top: 3px; }
-  .sl-body { padding-left: calc(2.5rem + 24px); }
+  .svc-list summary { grid-template-columns: minmax(0, 1fr) auto; align-items: start; padding-inline: 4px; }
+  .sl-body { padding-left: 4px; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .form-foot .btn { width: 100%; }
   .actions .btn { flex: 1 1 40%; padding-inline: 16px; }
@@ -468,4 +466,28 @@ h3 { font-size: 1.25rem; }
   .svc-cta { display: none; }
   .svc-cta-m { display: block; margin-top: 32px; text-align: center; }
   .svc-cta-m .btn { min-width: 220px; }
+}
+
+/* 첫 화면 오른쪽: 실제 상담실 사진. 넓은 화면에서만 오른쪽 끝까지 채운다 */
+.hero-photo { display: none; }
+@media (min-width: 1100px) {
+  .hero-photo { display: block; position: absolute; top: 0; right: 0; bottom: 0; width: 44%; }
+  .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+  .hero .lead { max-width: 20em; }
+  .hero-pause { right: calc(44% + 20px); }
+}
+
+/* 휴대폰: 인물 사진을 가로형으로 낮춰 두 장이 화면을 덜 차지하게 */
+@media (max-width: 560px) {
+  .people-wide .pcard img { aspect-ratio: 4 / 3; object-position: center 12%; }
+  .people-wide .pcard-text { padding-top: 56px; }
+}
+
+/* 휴대폰: 약도 글씨가 실제 화면에서 13px 안팎이 되게 */
+@media (max-width: 560px) {
+  .map text { font-size: 19px; }
+  .map .m-way { font-size: 18px; }
+  .map .m-dest { font-size: 24px; }
+  .map .m-plaza-t { font-size: 15px; }
+  .map .m-num { font-size: 16px; }
 }
