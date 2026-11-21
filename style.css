@@ -463,3 +463,12 @@ h3 { font-size: 1.25rem; }
   .dock a:active { transform: scale(0.97); }
   body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 }
+
+/* 업무 분야 상담 문의: PC는 소개 아래 간격을 넓게, 휴대폰은 목록 다음에 */
+.svc-cta { margin-top: 40px; }
+.svc-cta-m { display: none; }
+@media (max-width: 900px) {
+  .svc-cta { display: none; }
+  .svc-cta-m { display: block; margin-top: 32px; text-align: center; }
+  .svc-cta-m .btn { min-width: 220px; }
+}
