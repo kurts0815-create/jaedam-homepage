@@ -593,3 +593,13 @@ main > :first-child { border-top: var(--top-h) solid transparent; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .top.is-float .brand, .top.is-float .menu-btn { background: rgb(255 255 255 / 0.9); }
 }
+
+/* 수수료 카드별 포함 업무: 동그란 체크 목록 */
+.fee { --check-ink: var(--paper); }
+.fee-list { display: grid; gap: 10px; margin: 24px 0 0; padding: 20px 0 0; list-style: none; border-top: 1px solid rgb(20 29 43 / 0.1); }
+.fee-wide .fee-list { flex-basis: 100%; margin-top: 8px; }
+.fee-list li { display: flex; align-items: flex-start; gap: 10px; color: var(--ink); line-height: 1.5; }
+.fee-list svg { flex: none; margin-top: 3px; color: var(--blue); }
+.fee.fee-c { --check-ink: var(--blue); }
+.fee.fee-c .fee-list { border-top-color: rgb(255 255 255 / 0.22); }
+.fee.fee-c .fee-list li, .fee.fee-c .fee-list svg { color: var(--paper); }
