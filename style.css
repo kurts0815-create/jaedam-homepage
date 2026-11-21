@@ -12,6 +12,7 @@
   --line: #d3dbe5;
   --wash: #f2f5f9;
   --paper: #ffffff;
+  --navy: #0b2f66;        /* 전폭 남색 띠: 재담 블루보다 한 단계 깊게 */
   --scrim: rgb(13 27 48 / 0.86);
   --scrim-0: rgb(13 27 48 / 0);
   --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
@@ -488,3 +489,16 @@ h3 { font-size: 1.25rem; }
 .pcard-go { margin-left: auto; align-self: center; flex: none; opacity: 0.9; transition: transform 200ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) { .pcard:hover .pcard-go { transform: translateX(4px); } }
 @media (prefers-reduced-motion: reduce) { .pcard:hover .pcard-go { transform: none; } }
+
+/* 기장·재산: 흰 구역 사이에서 화면 끝까지 남색으로 바뀌는 띠 */
+.why-band { background: var(--navy); color: var(--paper); padding-block: clamp(80px, 10vw, 136px); }
+.why-band .why { gap: 0; }
+.why-band .why-card { padding: 0 var(--col-gap) 0 0; border-radius: 0; background: none; color: var(--pale); gap: 16px; }
+.why-band .why-card + .why-card { padding: 0 0 0 var(--col-gap); border-left: 1px solid rgb(255 255 255 / 0.2); }
+.why-band .why-card h2 { color: var(--paper); font-size: clamp(2.25rem, 1.3rem + 3vw, 3.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; }
+.why-band .why-tag { color: #9fb8de; }
+.why-band .why-card p:last-child { color: #c9d6ea; }
+@media (max-width: 900px) {
+  .why-band .why-card, .why-band .why-card + .why-card { padding: 0; border-left: 0; }
+  .why-band .why-card + .why-card { margin-top: 48px; padding-top: 48px; border-top: 1px solid rgb(255 255 255 / 0.2); }
+}
